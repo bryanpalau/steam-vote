@@ -58,8 +58,8 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-const voteSound = new Audio("assets/coin-sound.mp3"); // Preload vote sound
-const hoverSound = new Audio("assets/hover-sound.mp3"); // Preload hover sound
+const voteSound = new Audio("./assets/coin-sound.mp3"); // Fixed path with ./
+const hoverSound = new Audio("./assets/hover-sound.mp3"); // Fixed path with ./
 const voteCounts = JSON.parse(localStorage.getItem("voteCounts")) || {}; // Initialize vote counts
 
 // Initialize votes and UI

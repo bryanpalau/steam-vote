@@ -1,0 +1,323 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    cursor: none;
+}
+
+header h1 {
+    margin: 2px;
+    padding: 10px;
+    font-size: 2rem;
+    text-align: center;
+    color: #00bfff;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
+}
+
+/* Custom high-tech blue glowing cursor */
+#custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(0,100,255,0.8) 40%, rgba(0,50,255,0.3) 70%, rgba(0,20,100,0.1) 100%);
+    box-shadow: 
+        0 0 20px 3px rgba(0, 150, 255, 0.9),
+        0 0 40px 8px rgba(0, 100, 255, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 200, 255, 0.6);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: transform 0.05s ease-out;
+    animation: continuousGlow 2s ease-in-out infinite alternate;
+}
+
+/* Continuous pulsing outer ring */
+#custom-cursor::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 150, 255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Continuous rotating energy ring */
+#custom-cursor::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top: 1px solid rgba(0, 255, 255, 0.8);
+    border-right: 1px solid rgba(0, 200, 255, 0.4);
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes continuousGlow {
+    0% { 
+        box-shadow: 
+            0 0 20px 3px rgba(0, 150, 255, 0.9),
+            0 0 40px 8px rgba(0, 100, 255, 0.4),
+            inset 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    100% { 
+        box-shadow: 
+            0 0 30px 5px rgba(0, 200, 255, 1),
+            0 0 60px 12px rgba(0, 150, 255, 0.6),
+            inset 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+        opacity: 0.6; 
+        border-color: rgba(0, 150, 255, 0.5);
+    }
+    50% { 
+        transform: scale(1.3); 
+        opacity: 0.2; 
+        border-color: rgba(0, 255, 255, 0.8);
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 0.6; 
+        border-color: rgba(0, 150, 255, 0.5);
+    }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* View Design icon styling - High tech blue theme */
+.view-design-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 100, 255, 0.2);
+    width: 30px;
+    height: 30px;
+    color: #00bfff;
+    opacity: 0.8;
+    border: 1px solid rgba(0, 200, 255, 0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 150, 255, 0.3);
+}
+
+.view-design-icon:hover {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+}
+
+/* Style for the enlarge icon - High tech blue theme */
+.enlarge-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 100, 255, 0.2);
+    width: 30px;
+    height: 30px;
+    color: #00bfff;
+    opacity: 0.8;
+    border: 1px solid rgba(0, 200, 255, 0.4);
+    border-radius: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 150, 255, 0.3);
+}
+
+.enlarge-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
+}
+
+/* Modal styling - High tech blue theme */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.8);
+    border: 2px solid rgba(0, 150, 255, 0.4);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #00bfff;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.close:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1);
+}
+
+/* Highlight effect for just-voted image - High tech blue theme */
+.student-work.voted {
+    transform: scale(1.1);
+    border: 3px solid #00bfff;
+    animation: highlight 0.5s ease-in-out;
+}
+
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+    }
+    100% {
+        box-shadow: none;
+    }
+}
+
+/* Votes wrapper - High tech blue theme */
+.votes-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 50, 100, 0.8);
+    padding: 4px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.votes-wrapper p {
+    font-size: 1.6rem;
+    color: white;
+    margin: 0;
+}
+
+.votes-wrapper p span {
+    font-size: 1.6rem;
+    color: #00bfff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.6);
+}
+
+#student-works {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.student-work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(20% - 20px);
+    margin: 15px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 100, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(0, 50, 100, 0.1);
+    border: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+.student-work:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 200, 255, 0.5);
+    border-color: rgba(0, 200, 255, 0.6);
+}
+
+.image-wrapper img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.votes-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 50, 100, 0.9);
+    padding: 5px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+    z-index: 2;
+    border-top: 1px solid rgba(0, 150, 255, 0.4);
+}
+
+.votes-wrapper p {
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+}
+
+.votes-wrapper p span {
+    font-size: 1.2rem;
+    color: #00bfff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.6);
+}
+
+/* Highlight animation when voted - High tech blue theme */
+.student-work.highlight-voted {
+    border: 3px solid #00bfff;
+    animation: glow 0.8s ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #00bfff;
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 191, 255, 0.8), 0 0 60px rgba(0, 150, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px #00bfff;
+    }
+}
